@@ -108,7 +108,7 @@ betaposs=np.arange(gridsize2) / 10.  # and here?
 # Now we have the full posterior probability distribution computed for 
 # each possible model using both priors.
 
-# What if we want to know the posterior probability distribution for the slope?
+# What if we want to know the posterior distribution for the slope?
 # We can find out by "marginalizing" over the intercept or integrating over the posterior distribution of the intercept.
 
 # First, we take exp(lnpostprob)
@@ -122,21 +122,21 @@ betaposs=np.arange(gridsize2) / 10.  # and here?
 # why do we sum over axis 1 in the numerator, but
 # the whole array in the denominator?
 
-# Plot the marginalized posterior probability distribution of slope values
+# Plot the marginalized posterior distribution of slope values
 #plt.figure(3) 
 #plt.clf()
 #plt.plot(alphaposs,marginalizedpprob_flat_slope,'g.',markersize=10)
 #plt.plot(alphaposs,marginalizedpprob_comp_slope,'g.',markersize=10)
 #plt.plot(?,?,'r.',markersize=10)
 #plt.xlabel("alpha")
-#plt.ylabel("marginalized posterior probability distribution of slope")
+#plt.ylabel("marginalized posterior distribution of slope")
 
 # zoom in on the region of significant probability
 # and estimate the error from the graph
 # Compare your error estimate with the error from paramfit1.py - are they similar?
 
 
-# Now marginalize over the slope to see the posterior probability distribution in y-intercept
+# Now marginalize over the slope to see the posterior distribution in y-intercept
 #marginalizedpprob_flat_yint = ?
 #marginalizedpprob_comp_yint = ?
 
@@ -145,11 +145,11 @@ betaposs=np.arange(gridsize2) / 10.  # and here?
 #plt.plot(betaposs,marginalizedpprob_flat_yint,'g',markersize='10.')
 #plt.plot(betaposs,marginalizedpprob_comp_yint,'r',markersize='10.')
 #plt.xlabel("beta")
-#plt.ylabel("marginalized posterior probability distribution of y-intercept")
+#plt.ylabel("marginalized posterior distribution of y-intercept")
 
 
 
-# How do the MLE values of the slope & y-intercept compare with marginalized posterior probability distributions? 
+# How do the MLE values of the slope & y-intercept compare with marginalized posterior distributions? 
 
 # How does the error on the slope & y-intercept compare with the value from the covariance matrix from paramfit1.py?
 

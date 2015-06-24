@@ -104,7 +104,7 @@ for i in xrange(gridsize1):  # loop over all possible values of alpha
 # Now we have the full posterior probability distribution computed for 
 # each possible model using both priors.
 
-# What if we want to know the posterior probability distribution for the slope?
+# What if we want to know the posterior distribution for the slope?
 # We can find out by "marginalizing" over the intercept or integrating over the posterior distribution of the intercept.
 
 # First, we take exp(lnpostprob)
@@ -118,13 +118,13 @@ marginalizedpprob_comp_slope = np.sum(postprob_comp,axis=1) / np.sum(postprob_co
 #  summing over axis 1 sums the probability in the y-intercept direction
 #  summing over the entire array gives the normalization
 
-# Plot the marginalized posterior probability distribution of slope values
+# Plot the marginalized posterior distribution of slope values
 plt.figure(3) 
 plt.clf()
 plt.plot(alphaposs,marginalizedpprob_flat_slope,'g.',markersize=10)
 plt.plot(alphaposs,marginalizedpprob_comp_slope,'r.',markersize=10)
 plt.xlabel("alpha")
-plt.ylabel("marginalized posterior probability distribution of slope")
+plt.ylabel("marginalized posterior distribution of slope")
 
 # zoom in on the region of significant probability
 # and estimate the error from the graph
@@ -141,15 +141,15 @@ plt.clf()
 plt.plot(betaposs,marginalizedpprob_flat_yint,'g',markersize='10.')
 plt.plot(betaposs,marginalizedpprob_comp_yint,'r',markersize='10.')
 plt.xlabel("beta")
-plt.ylabel("marginalized posterior probability distribution of y-intercept")
+plt.ylabel("marginalized posterior distribution of y-intercept")
 
 
 
-# How do the MLE values of the slope & y-intercept compare with marginalized posterior probability distributions? MLE values are within the posterior probability distributions.
+# How do the MLE values of the slope & y-intercept compare with marginalized posterior distributions? MLE values are within the posterior distributions.
 
 # How does the error on the slope & y-intercept compare with the value from the covariance matrix from paramfit1.py? eyeballed uncertainties are comparable to the MLE uncertainties
 
-# What happens to the values and uncertainties of the slope and y-intercept if you change the number of points in your data (try N=100, N=10)? Decreasing to N=10, the marginalized posterior probability distributions using the different priors diverge. Increasing to N=100, the marginalized posterior probability distributions using the different priors are very similar and the posterior probability distributions become narrower.
+# What happens to the values and uncertainties of the slope and y-intercept if you change the number of points in your data (try N=100, N=10)? Decreasing to N=10, the marginalized posterior distributions using the different priors diverge. Increasing to N=100, the marginalized posterior distributions using the different priors are very similar and the posterior distributions become narrower.
 
 # What happens if you change the grid spacing (try slope ranges from 1-10 in steps of 0.1, y-intercept ranges from 1-10 in steps of 1)? When gridded less finely the distributions become less well defined, binning the distributions more finely results in a better solution but takes more time to compute
 
