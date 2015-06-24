@@ -1,0 +1,97 @@
+"""
+part II, fourth activity in Parameter Fitting Tutorial
+Solutions Written by Katie Eckert
+June 24, 2015
+"""
+
+import numpy as np
+import matplotlib.pyplot as plt
+import numpy.random as npr
+import pylab
+pylab.ion()
+
+# a) Read in data and plot
+datain=np.loadtxt("percentzombie.txt") # read in text file with data
+time=datain[:,0] # load in time
+perzombie=datain[:,1] # load in % zombies
+perhuman=100-perzombie # calculate % human = (1- % zombie)
+
+err=3.0 # assume 3% error on measurement of % zombies
+
+# check lengths of arrays
+print("time array has %f elements" %np.size(time))
+print("percent human array has %f elements" %np.size(perhuman))
+
+
+plt.figure(1) 
+plt.clf()
+plt.plot(time,perhuman,'b*',markersize=10)
+plt.xlabel('time')
+plt.ylabel('% human')
+plt.xlim(-15,15)
+plt.ylim(0,100)
+
+
+# tryout Bayesian analysis
+# b) setup grids
+testslope=np.arange(501)/100.-10 # I chose -10 to -5 in steps of 0.01 
+testyint=np.arange(101)/5.-4 # I chose from -4 to 16 in steps of 0.25
+
+print("min/max slope are %f/%f" % (np.min(testslope),np.max(testslope)))
+print("min/max y-intercept are %f/%f" % (np.min(testyint),np.max(testyint)))
+
+# Want to have a prior that compensates for the unequal spacing in angle (rather than flat on slope and y-intercept): prior = (1+slope^2)^(-3/2)
+
+lnpostprobout=np.zeros((np.size(testslope),np.size(testyint))) # setup array to hold posterior probabilities
+for i in range(np.size(testslope)): # range over all slope
+    for j in range(np.size(testyint)): # range over all y-intercepts
+        modelperhuman=time*testslope[i]+testyint[j] # compute % human fit values for each model
+        residuals=perhuman-modelperhuman # compute residuals
+        chisq=np.sum((residuals)**2/err**2) # compute chi^2 for particular model
+        prior=(1.+testslope[i]**2)**(-3./2.) # compute prior for particular model
+        lnpostprobout[i,j]=-1.*chisq/2. + np.log(prior) # compute posterior probability for given model
+
+# c) What is marginalized posterior probability distribution for the percentage of humans at t=0 (today)? We need the marginalized posterior probability distribution of the y-intercept, so we must marginalize over the slope
+
+postprobout=np.exp(lnpostprobout)
+# Marginalize over slope values to see y-intercept posterior distribution
+
+marginalizedpprob_yint=np.sum(postprobout,axis=0)/np.sum(postprobout)
+
+plt.figure(2)
+plt.clf()
+plt.plot(testyint,marginalizedpprob_yint,'r*',markersize=10)
+plt.xlim(np.min(testyint),np.max(testyint))
+plt.xlabel("% of humans alive today (t=0)")
+plt.ylabel("marginalized posterior probability of % of humans alive today")
+
+# likely ~5% humans still left as of today
+
+
+# d) Since I am not a zombie yet, I can place a prior that total zombification (0% human) has not occured yet therefore I set my y-intercept grid space to start with at least 1% human left
+
+testslope2=np.arange(501)/100.-10 # I chose -10 to -5 in steps of 0.01 
+testyint2=np.arange(101)/5.+1.0 # I chose from 1 to 20 in steps of 0.25
+
+
+# Use the prior that compensates for the unequal angular spacing 
+# prior = (1+slope^2)^(-3/2)
+
+lnpostprobout2=np.zeros((np.size(testslope2),np.size(testyint2)))
+for i in range(np.size(testslope2)):
+    for j in range(np.size(testyint2)):
+        modelperhuman=time*testslope2[i]+testyint2[j]
+        residuals=perhuman-modelperhuman
+        chisq=np.sum((residuals)**2/err**2)
+        prior=(1.+testslope2[i]**2)**(-3./2.)
+        lnpostprobout2[i,j]=-1.*chisq/2. + np.log(prior)#
+
+postprobout2=np.exp(lnpostprobout2)
+#marginalize over slope values to see y-intercept
+marginalizedpprob_yint2=np.sum(postprobout2,axis=0)/np.sum(postprobout2)
+
+plt.plot(testyint2,marginalizedpprob_yint2,'g.',markersize=10)
+
+# Now the marginalized posterior probability distribution is truncated at % of humans = 1 and the probabilities ~5% are larger than in the original y-intercept posterior probability distribution
+
+# The marginalized posterior probability distribution for the % of humans left today (time=0) agrees with the MLE value for the % of humans at t=0 (~4.9%), as the distribution peaks near 5 (although we see there is a quite wide distribution from the Bayesian analysis).
