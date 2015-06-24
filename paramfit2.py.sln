@@ -35,7 +35,7 @@ alphaposs=np.arange(gridsize1) / 100. # what values are we considering?
 betaposs=np.arange(gridsize2) / 10.  # and here?
 
 print("min slope is %f and max slope is %f" % (np.min(alphaposs), np.max(alphaposs)))
-print("min y-int is %f and max y-int is %f" % (np.min(betaposs), np.max(betaposs)))
+print("min y-intercept is %f and max y-intercept is %f" % (np.min(betaposs), np.max(betaposs)))
 
 # What are our implicit priors?
 # Implicit priors are flat priors on slope and y-intercept
@@ -45,21 +45,21 @@ print("min y-int is %f and max y-int is %f" % (np.min(betaposs), np.max(betaposs
 # the y-intercept and slope for a line with x values ranging from (0,1)
 xx=np.arange(0,1,0.1)  # set up array of dummy values
 
-# Test y-intercept spacing
+# Test y-intercept spacing at fixed slope (choosing example slope=1)
 plt.figure(2) 
 plt.clf()
 plt.subplot(121)
-for i in range(len(betaposs)):       # loop over all y-int values
-    plt.plot(xx,xx+betaposs[i],'b-') # plot lines with different y-int values
+for i in range(len(betaposs)):       # loop over all y-intercept values
+    plt.plot(xx,xx+betaposs[i],'b-') # plot lines with different y-intercept values
 
 plt.xlim(0,1) # limit to small range
 plt.ylim(0,1) # limit to small range
 plt.xlabel("x values")
-plt.ylabel("y values for several values of y-int (y=x+beta)")
-plt.title("test y-int prior")
+plt.ylabel("y values for several values of y-intercept (y=x+beta)")
+plt.title("test y-intercept prior")
 # yes - evenly spaced uniform input distribution
 
-# Test slope
+# Test slope at fixed y-intercept of zero
 plt.subplot(122)
 for i in range(len(alphaposs)):       # loop over all slope values
     plt.plot(xx,alphaposs[i]*xx)          # plot lines with different slope values
@@ -70,11 +70,11 @@ plt.xlabel("x values")
 plt.ylabel("y values for several values of slope (y=alpha*x)")
 plt.title("test slope prior")
 
-# A flat prior in slope amounts to a non-flat prior on the angle or tan(y/x), weighting our fit more heavily to steeper values of slope
+# A flat prior in slope amounts to a non-flat prior on the angle = tan(y/x), weighting our fit more heavily to steeper values of slope
 
-# We can them determine a prior that compensates for this unequal spacing in angle
+# We can then determine a prior that compensates for this unequal spacing in angle
 # Read through http://jakevdp.github.io/blog/2014/06/14/frequentism-and-bayesianism-4-bayesian-in-python/ for more details on obtaining this prior
-# Note that they have reversed the notation for the slope and y-intercept from our convention: prior is written as (1+slope**2)**(-3./2.)
+# Note that they have reversed the notation for the slope and y-intercept from our convention. The prior is written as (1+slope**2)**(-3./2.)
 
 
 # remember Bayes's theorem: P(M|D)=P(D|M)*P(M)/P(D)
@@ -83,9 +83,9 @@ plt.title("test slope prior")
 # P(M) is the prior
 # P(D) is the normalization
 
-# To compute the posterior probability distribution:
-# postprob=exp(-1*chisq/2)*prior
-# lnpostprob=-1*chisq/2 + ln(prior)
+# For computational convenience, we'll want to compute the log of the posterior probability distribution:
+# postprob=exp(-1*chisq/2.)*prior
+# ln(postprob)=-1*chisq/2. + ln(prior)
 
 # Compute the posterior probability for all possible models with two different priors
 lnpostprob_flat=np.zeros((gridsize1,gridsize2)) # setup an array to contain those values for the flat prior
@@ -151,6 +151,6 @@ plt.ylabel("marginalized posterior probability distribution of y-intercept")
 
 # What happens to the values and uncertainties of the slope and y-intercept if you change the number of points in your data (try N=100, N=10)? Decreasing to N=10, the marginalized posterior probability distributions using the different priors diverge. Increasing to N=100, the marginalized posterior probability distributions using the different priors are very similar and the posterior probability distributions become narrower.
 
-# What happens if you change the grid spacing (try slope ranges from 1-10 in steps of 0.1, y-int ranges from 1-10 in steps of 1)? When gridded less finely the distributions become less well defined, binning the distributions more finely results in a better solution but takes more time to compute
+# What happens if you change the grid spacing (try slope ranges from 1-10 in steps of 0.1, y-intercept ranges from 1-10 in steps of 1)? When gridded less finely the distributions become less well defined, binning the distributions more finely results in a better solution but takes more time to compute
 
 
