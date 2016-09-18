@@ -57,9 +57,9 @@ For more complicated functions or if the uncertainties are not uniform, setting 
 
 ### Activity 1: paramfit1.py
 
-In `paramfit1.py` we create fake data with known slope and y-intercept. We then compute the maximum likelihood estimated slope and y-intercept for the fake data. Fill in lines ending with "?". Solutions are provided in `paramfit1.py.sln`.
+In `paramfit1.py` we create fake data with known slope and y-intercept. We then compute the maximum likelihood estimated slope and y-intercept for the fake data. Fill in lines ending with "?" and answer questions by putting your own comments in the code.
 
-1. Run the program `paramfit1.py` and plot the data. What does `npr.normal` do?
+1. Run the program `paramfit1.py` and plot the data. What is `npr.normal` used to do in line 21?
 
 2. Read over the MLE derivation for the linear least squares analytical solution (above) and compute the slope and y-intercept for the fake data set. Plot the best fit solution on top of the data. What is the assumption that we made for the uncertainties on our fake data?
 
