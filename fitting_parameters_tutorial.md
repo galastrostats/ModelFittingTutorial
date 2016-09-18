@@ -12,7 +12,7 @@ In this respository there are python codes (paramfit1.py and paramfit2.py) that 
 
 These are just a few examples of why we might want to fit a model to our data. In this tutorial we will go through the basics of fitting model parameters to data using two different techniques: *Maximum Likelihood Estimation* and *Bayesian Analysis.*
 
-## Part I: Least Squares Fitting & Maximum Likelihood Estimation of Model Parameters:
+## Part I: Least Squares Fitting & Maximum Likelihood Estimation of Model Parameters
 
 *Least Squares Fitting* is based on the assumption that the uncertainty in your measurements follows a Gaussian distribution. In the linear case, the best solution is given by the slope & y-intercept parameters that minimize the root mean square (rms) of the residuals in the y-direction.
 
@@ -104,7 +104,7 @@ A virus has gotten out that is turning humans into zombies. You have been record
 
 6. Calculate the reduced χ<sup>2</sup>for these higher order fits – do they yield as good a fit to the data as the linear fit?
 
-## Part II: Bayesian Estimation of Model Parameters:
+## Part II: Bayesian Estimation of Model Parameters
 
 *Bayesian analysis* presents an entirely different philosophy of determining model parameters compared to the traditional MLE. In part I we determined the likelihood of the data given the model, which involved one model and many data sets. The one data set in activity 1 was imagined to be an example data set drawn from many repeat experiments, which can be mathematically modeled assuming the other experiments would provide data points distributed in Gaussian fashion around the actual data points or alternatively could be computationally modeled using Monte Carlo techniques. In the Bayesian framework, we determine the likelihood of the model given the data, which involves many models and one data set.
 
