@@ -2,7 +2,7 @@
 
 by Katie Eckert (adapted from tutorials by Sheila Kannappan & Amy Oldenberg), June 24, 2015. Last updated Rohan Isaac Sep 2016
 
-This respository contains python codes (paramfit1.py and paramfit2.py) that contain partial answers for you to fill out. Two additional activities are codes to write on your own. Solutions are also available for all of the activities (with the extension .sln).
+This respository contains python codes (paramfit1.py and paramfit2.py) that contain partial answers for you to finish. Two additional activities are codes to write on your own. Solutions are also available for all of the activities (with the extension .sln) but do not look at them until you try them on your own.
 
 **Why do we fit models to our data?**
 
