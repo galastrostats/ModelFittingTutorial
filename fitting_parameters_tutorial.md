@@ -55,7 +55,7 @@ Now we can go back and solve for β:
 
 from **eqn 2** <img src="https://latex.codecogs.com/png.latex?\beta=\bar{y}-\alpha\bar{x}"/> 
 
-For more complicated functions or if the uncertainties are not uniform, the derivatives of the likelihood may not be possible to solve analytically, and we can use programs such as `np.polyfit` to determine the parameters numerically.
+For more complicated functions or if the uncertainties are not uniform, setting the derivatives of the likelihood equal to zero may not lead to equations that are easily solved analytically, so we typically use programs such as `np.polyfit` to determine the parameters numerically.
 
 ### Activity 1: paramfit1.py
 
