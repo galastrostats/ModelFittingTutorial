@@ -14,9 +14,9 @@ These are just a few examples of why we might want to fit a model to our data. I
 
 ## Part I: Least Squares Fitting & Maximum Likelihood Estimation of Model Parameters
 
-*Least Squares Fitting* is based on the assumption that the uncertainty in your measurements follows a Gaussian distribution. In the linear case, the best solution is given by the slope & y-intercept parameters that minimize the root mean square (rms) of the residuals in the y-direction.
+*Least Squares Fitting* is based on the assumption that the uncertainty in the measurements follows a Gaussian distribution. In the case of a linear model, the best solution is given by the slope & y-intercept parameters that minimize the root mean square (rms) of the residuals between the data and the model, where the residuals are measured in the y-direction in the case of "forward" fitting.
 
-The rms squared is given by: <img src="https://latex.codecogs.com/png.latex?\mathrm{rms}^2=\sum\frac{\left(y_i-\left(\alpha&space;x_i&plus;\beta\right)\right&space;)^2}{\sigma_i^2}"/> where x<sub>i</sub> is the independent variable, y<sub>i</sub> is the dependent variable with uncertainty σ<sub>i</sub>, and α and β are the slope and y-intercept parameter values.
+The square of the rms is given by: <img src="https://latex.codecogs.com/png.latex?\mathrm{rms}^2=\sum\frac{\left(y_i-\left(\alpha&space;x_i&plus;\beta\right)\right&space;)^2}{\sigma_i^2}"/> where x<sub>i</sub> is the independent variable, y<sub>i</sub> is the dependent variable with uncertainty σ<sub>i</sub>, and α and β are the slope and y-intercept parameter values.
 
 Least Squares Fitting falls within the category of parameter fitting known as *Maximum Likelihood Estimation (*MLE). In this method, we measure the likelihood for a given model using the χ<sup>2</sup> statistic:
 
