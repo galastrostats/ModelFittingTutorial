@@ -1,6 +1,6 @@
-# CAP Program Tutorial: Model Fitting in Python
+# Model Fitting Tutorial
 
-by Katie Eckert (adapted from tutorials by Sheila Kannappan & Amy Oldenberg) June 2015. Edits by Rohan Isaac Sep 2016.
+by Katie Eckert (adapted from tutorials by Sheila Kannappan & Amy Oldenberg) June 2015. Edited by Rohan Isaac and Sheila Kannappan Sept. 2016.
 
 In this respository there are python codes (paramfit1.py and paramfit2.py) that contain partial answers for you to finish. Two additional activities ask you to write on your own codes. Solutions are available for all of the activities (with the extension .sln), but do not look at them until you try the activities on your own.
 
