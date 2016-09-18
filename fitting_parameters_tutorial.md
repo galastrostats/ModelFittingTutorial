@@ -33,7 +33,7 @@ If we assume the σ<sub>i</sub>'s are all the same, then we have two equations f
 
 **eqn 1:** <img src="https://latex.codecogs.com/png.latex?\sum&space;y_i&space;x_i-\alpha\sum&space;x_i^2-\beta\sum&space;x_i=0"/> 
 
-**eqn 2:** <img src="https://latex.codecogs.com/png.latex?\sum&space;y_i-\alpha\sum&space;x_i^2-N\beta=0"/> 
+**eqn 2:** <img src="https://latex.codecogs.com/png.latex?\sum&space;y_i-\alpha\sum&space;x_i-N\beta=0"/> 
 
 Multiply eqn 1 by N and multiply eqn 2 by <img src="https://latex.codecogs.com/png.latex?\sum&space;x_i"/> to get:
 
