@@ -61,9 +61,9 @@ In `paramfit1.py` we create fake data with known slope and y-intercept. We then 
 
 1. Run the program `paramfit1.py` and plot the data. What is `npr.normal` used to do in line 21?
 
-2. Read over the MLE derivation for the linear least squares analytical solution (above) and compute the slope and y-intercept for the fake data set. Plot the best fit solution on top of the data. What is the assumption that we made for the uncertainties on our fake data?
+2. Read over the MLE derivation for the linear least squares analytical solution (above) and compute the slope and y-intercept for the fake data set. Plot the best fit solution on top of the data. What is the assumption that we made for the uncertainties on our fake data, and where in the code was it made?
 
-3. For linear least squares fitting, we can obtain analytical solutions to the uncertainties on the slope
+3. For linear least squares fitting, we can obtain analytical formulae for the uncertainties on the slope
 and y-intercept estimates, which have been provided below.
 
 <img src="https://latex.codecogs.com/png.latex?\sigma_\alpha^2=\frac{\sum\left(y_i-\left(\alpha&space;x_i&plus;\beta\right)\right&space;)^2}{(N-2)\sum(x_i-\bar{x})^2}"/>
