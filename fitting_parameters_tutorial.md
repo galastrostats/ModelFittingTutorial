@@ -117,9 +117,9 @@ Plot the marginalized posterior distributions of the slope using the two differe
 
 In Bayesian analysis, it is important to think about the questions you are trying to answer when setting up the problem. Starting with a well understood model grid and set of priors is key. In this case do you want a flat prior on the slope and y-intercept, or do you want a prior that compensates for the unequal distribution in angles? What range do you want to compute your data over? How finely should you bin the grids?
 
+For more information on the Bayesian approach, additional tutorials are available at [this website](http://jakevdp.github.io/blog/2014/06/14/frequentism-and-bayesianism-4-bayesian-in-python/).
+
 ## Part III: Zombies!
 
 To cement your understanding, complete this [coding activity](https://github.com/galastrostats/ModelFittingTutorial/blob/master/zombieactivity.md) in which the codes are not written for you.
-
-For more information on the Bayesian approach, tutorials are available at [this website](http://jakevdp.github.io/blog/2014/06/14/frequentism-and-bayesianism-4-bayesian-in-python/).
 
