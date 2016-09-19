@@ -1,11 +1,11 @@
 # Zombie Activity
-A python activity by Kathleen Eckert.
+A python activity by Kathleen Eckert with help from Sheila Kannappan.
 
 ### Activity 1: Frequentist Zombies
 
 For this activity you will write your own code, but remember that you can take portions of previous code to make the process faster. Use the python quick reference card (http://user.physics.unc.edu/~sheila/PythonQuickReference.pdf) and codes from previous tutorials to help you write the code for this activity. Please feel free to work together on this part. My solutions are provided in `zombies1.py.sln`.
 
-A virus has gotten out that is turning humans into zombies. You have been recording the % of zombies ever since the outbreak (~14 days ago). However the power has gone out for the past four days and your generator just kicked in allowing you to analyze the data and determine when there will be no humans left (`% humans = [1- % zombies] = 0`). Your data are in `percentzombie.txt` where `time=0` is the present day (`time = -14` is 14 days ago when you started taking data).
+A virus has gotten out that is turning humans into zombies. You as a scientist have been recording the % of zombies ever since the outbreak (~14 days ago). However the power has gone out for the past four days and your generator just kicked in allowing you to analyze the data and determine when there will be no humans left (`% humans = [1- % zombies] = 0`). Your data are in `percentzombie.txt` where `time=0` is the present day (`time = -14` is 14 days ago when you started taking data).
 
 * a) Read in your data and plot it as % human vs. time as blue stars. The uncertainties on both time and % zombie are unknown.
 
@@ -21,9 +21,9 @@ A virus has gotten out that is turning humans into zombies. You have been record
 
 ### Activity 2: Bayesian Zombies
 
-For this activity you will write your own code (but remember that you can take portions of previous code to make the process faster).
+For this activity you will again write your own code (but remember that you can take portions of previous code to make the process faster).
 
-A virus has gotten out that is turning humans into zombies. You as a scientist have been recording the % of zombies ever since the outbreak (~14 days ago). However the power has gone out for the past four days and your generator just kicked in allowing you to analyze the data and determine when there will be no humans left (`% humans = [1-% zombies] = 0`). where `time=0` is the present day (`time = -14` is 14 days ago when you started taking data). Use your Bayesian skills now to perform this analysis.
+The scenario is the same: a virus has gotten out that is turning humans into zombies. You have been recording the % of zombies ever since the outbreak (~14 days ago). However the power has gone out for the past four days and your generator just kicked in allowing you to analyze the data and determine when there will be no humans left (`% humans = [1-% zombies] = 0`). where `time=0` is the present day (`time = -14` is 14 days ago when you started taking data). Use your Bayesian skills now to perform this analysis.
 
 * a) Read in the data and plot it as % human vs. time in blue stars (Figure 1).
 
