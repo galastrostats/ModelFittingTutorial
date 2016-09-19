@@ -80,7 +80,7 @@ In this example we have assumed that the &sigma; on all data points is the same.
 
 ## Part II: Bayesian Estimation of Model Parameters
 
-*Bayesian analysis* presents an entirely different philosophy of determining model parameters compared to traditional MLE. In part I we determined the likelihood of the data given the model, which presumed one model and many data sets. The data set in activity 1 was imagined to be an example data set drawn from many repeat experiments, which we could mathematically model assuming the other experiments would provide data points distributed in Gaussian fashion around the actual data points or alternatively we could computationally model using Monte Carlo techniques. In the Bayesian framework, however, we determine the likelihood of the model given the data. Thus we consider many models and only one data set.
+*Bayesian analysis* presents an entirely different philosophy of determining model parameters compared to traditional MLE. In part I we determined the likelihood of the data given the model, which presumed one model and many data sets. The data set in activity 1 was imagined to be an example data set drawn from many possible experiments, which we could mathematically model assuming the other experiments would provide data points distributed in Gaussian fashion around the measured data points (the standard sleight of hand of statistics). In the Bayesian framework, however, we determine the likelihood of the model given the data, meaning we consider many models and only one data set.
 
 #### Bayes's Theorem
 
