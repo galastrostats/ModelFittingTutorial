@@ -35,4 +35,3 @@ The scenario is the same: a virus has gotten out that is turning humans into zom
 
 * e) How does the Bayesian analysis for determining the % of humans today compare with the value from the MLE fit from the Frequentist Zombies activity?
 
-For more information on the Bayesian approach, tutorials are available on the website below (all provided in python notebooks) http://jakevdp.github.io/blog/2014/06/14/frequentism-and-bayesianism-4-bayesian-in-python/ .
