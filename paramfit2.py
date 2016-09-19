@@ -132,7 +132,7 @@ betaposs=np.arange(gridsize2) / 10.  # and here?
 #plt.figure(3) 
 #plt.clf()
 #plt.plot(alphaposs,marginalizedpprob_flat_slope,'g.',markersize=10)
-#plt.plot(alphaposs,marginalizedpprob_comp_slope,'g.',markersize=10)
+#plt.plot(?,?,'r.',markersize=10)
 #plt.xlabel("alpha")
 #plt.ylabel("marginalized posterior distribution of slope")
 
