@@ -2,17 +2,17 @@
 
 A python tutorial by Kathleen Eckert adapted from tutorials by Sheila Kannappan & Amy Oldenberg June 2015. Edited by Rohan Isaac and Sheila Kannappan Sept. 2016.
 
-In this respository there are python codes (paramfit1.py and paramfit2.py) that contain partial answers for you to finish. Two additional activities ask you to write your own codes.
+In this respository there are python codes (paramfit1.py and paramfit2.py) that contain partial answers for you to finish.
 
-**Why do we fit models to our data?**
+**Why do we fit models to data?**
 
--   To understand the underlying distribution of our data
+-   To understand the underlying distribution of the data
 -   To test hypotheses or competing theoretical models
 -   To predict values for future observations
 
-These are just a few examples of why we might want to fit a model to our data. In this tutorial we will go through the basics of fitting model parameters to data using two different techniques: *Maximum Likelihood Estimation* and *Bayesian Analysis.*
+These are just a few examples of why we might want to fit models to data. In this tutorial we will go through the basics of determining model parameters using two different techniques: Frequentist Maximum Likelihood Parameter Estimation and Bayesian Posterior Distribution Parameter Estimation.
 
-## Part I: Least Squares Fitting & Maximum Likelihood Estimation of Model Parameters
+## Part I: Frequentist Estimation of Model Parameters
 
 *Least Squares Fitting* is based on the assumption that all the measurement uncertainties &sigma; in a data set are the same, i.e., follow the same Gaussian distribution. In the case of a linear model, the least squares fit gives the slope & y-intercept parameters that minimize the mean square residuals between the data and the model, where the residuals are measured in the y-direction in the case of "forward" fitting. Here the mean square residuals are given by: <img src="https://latex.codecogs.com/png.latex?\mathrm{rms}^2=\frac{1}{N}\sum{\left(y_i-\left(\alpha&space;x_i&plus;\beta\right)\right&space;)^2}"/> where x<sub>i</sub> is the independent variable, y<sub>i</sub> is the dependent variable, and α and β are the slope and y-intercept parameter values. Minimizing the mean square residuals is equivalent to minimizing the rms (root mean square) residuals, and also equivalent to minimizing the &chi;<sup>2</sup>, because of the fact that all &sigma;'s have been assumed to be identical.
 
@@ -80,7 +80,7 @@ In this example we have assumed that the &sigma; on all data points is the same.
 
 ## Part II: Bayesian Estimation of Model Parameters
 
-*Bayesian analysis* presents an entirely different philosophy of determining model parameters compared to traditional MLE. In part I we determined the likelihood of the data given the model, which presumed one model and many data sets. The data set in activity 1 was imagined to be an example data set drawn from many repeat experiments, which we could mathematically model assuming the other experiments would provide data points distributed in Gaussian fashion around the actual data points or alternatively we could computationally model using Monte Carlo techniques. In the Bayesian framework, however, we determine the likelihood of the model given the data. Thus we consider many models and only one data set.
+*Bayesian analysis* presents an entirely different philosophy compared to frequentist analysis. In part I we determined the likelihood of the data given the model, which presumes one model and many possible data sets. The data set in activity 1 was imagined to be an example data set drawn from many possible experiments, which we could mathematically model assuming the other experiments would provide data points distributed in Gaussian fashion around the measured data points (i.e., the standard sleight of hand of statistics, substituting the observed data distribution for "true" parent distribution). In the Bayesian framework, however, we do not imagine many possible experiments that have not actually been conducted. Instead, we determine the likelihood of the model given the data, meaning we consider many models and only one data set.
 
 #### Bayes's Theorem
 
@@ -89,27 +89,25 @@ In this example we have assumed that the &sigma; on all data points is the same.
 1. P(D|M) - the likelihood (as in part I), this is read as “probability of the data given the model”
 2. P(M) - the prior probability (known information about the model set, an example is a flat prior, which weights all parameter possibilities hence all models equally)
 3. P(D) - probability of the data, essentially a normalization factor
-4. P(M|D) - the posterior probability of the model given the data
+4. P(M|D) - the posterior probability distribution of the model given the data
 
-Whereas in MLE, we maximized the likelihood function to find the single "best" set of parameters, in Bayesian analysis we construct the posterior probability distribution, which is the distribution of probabilities for a grid of models spanning ranges of parameters where we think our parameters are likely to be (meaning we are setting the "prior" to 0 outside these ranges). To do this in practice, we compute the likelihood of the data given each model multiplied by the prior for each model over the entire model grid. In many problems scientists will assume a flat prior (all grid points weighted equally), and then the posterior probability distribution is proportional to the likelihood.
+Whereas in MLE, we maximized the likelihood function to find the single "best" set of parameters, in Bayesian analysis we construct the posterior probability distribution, which is the distribution of probabilities that each model is correct in a set of models defined by different parameter values. A common approach is to generate a grid of models spanning parameter value ranges where we think our parameters are likely to be, meaning we set the "prior" to 0 outside these ranges. To do this in practice, we compute the likelihood of the data given each model multiplied by the prior for each model over the entire model grid. In many problems scientists will assume a flat prior (all grid points weighted equally), and then the posterior probability distribution is proportional to the likelihood.
 
-### Activity 3: paramfit2.py
+### Activity 2: paramfit2.py
 
-In `paramfit2.py` we use the same fake data set created in `paramfit1.py`. This time, however, we will determine the slope and y-intercept through Bayesian analysis by constructing a grid of possible values of the slope and y-intercept and evaluating the posterior probability at each grid point. Fill in any lines of code ending in "?".
+In `paramfit2.py` we will use the same fake data set created in `paramfit1.py`. This time, however, we will determine the slope and y-intercept through Bayesian analysis by constructing a grid of possible values of the slope and y-intercept and evaluating the posterior probability at each grid point. Fill in any lines of code ending in "?".
 
-1. Run `paramfit2.py` and plot the fake data. Set up grids for the y-intercept and slope values that make sense. What values are we considering for the slope and the y-intercept? What is the implicit prior on the slope and y-intercept that we are considering?
+* a) Run `paramfit2.py` and plot the fake data. Set up grids for the y-intercept and slope values that make sense. What values are we considering for the slope and the y-intercept? What is the implicit prior on the slope and y-intercept that we are considering?
 
-2. Check that the model space from the choice of grid values for both the y-intercept and slope is also uniformly distributed. To do this plot a series of lines using all possible y-intercepts (`y=x+beta_i`) and then all possible slopes (`y=x*alpha_i`). Is the model space from the y-intercept parameter evenly spaced? Is the model space from the slope parameter evenly spaced? Note that uniform priors can be uniform in the parameter or in a function of the parameter, e.g. slope, log(slope), tan(slope), depending on what physically makes sense. What is a physically motivated definition of "evenly spaced" for the slope, based on studying the plots?
+* b) Check that the model space from the choice of grid values for both the y-intercept and slope is also uniformly distributed. To do this plot a series of lines using all possible y-intercepts (`y=x+beta_i`) and then all possible slopes (`y=x*alpha_i`). Is the model space from the y-intercept parameter evenly spaced? Is the model space from the slope parameter evenly spaced? Note that uniform priors can be uniform in the parameter or in a function of the parameter, e.g. slope, log(slope), tan(slope), depending on what physically makes sense. What is a physically motivated definition of "evenly spaced" for the slope, based on studying the plots?
 
-3. Read through: http://jakevdp.github.io/blog/2014/06/14/frequentism-and-bayesianism-4-bayesian-in-python/. How can we write a prior that compensates for the non-uniform weighting of the angles?
+* c) Read through: http://jakevdp.github.io/blog/2014/06/14/frequentism-and-bayesianism-4-bayesian-in-python/. How can we write a prior that compensates for the non-uniform weighting of the angles?
+**Note that in the article the definition of alpha and beta are reversed to be y = α + βx. ** 
 
-**Note that in this article the definition of alpha and beta are reversed: y = α + βx. ** 
+* d) Using the fake data, compute the posterior probability distributions (posterior distributions for short) for the entire grid assuming 1) flat priors on the values of the slopes and y-intercepts (non-uniform in the angle) and 2) the prior that compensates and creates a uniform angular distribution. Pay attention to where the prior appears in the equation for computing the posterior probabilities.
 
-4. Using the fake data, compute the posterior probability distributions (posterior distributions for short) for the entire grid assuming 1) flat priors on the values of the slopes and y-intercepts (non-uniform in the angle) and 2) the prior that compensates and creates a uniform angular distribution. Pay attention to where the prior appears in the equation for computing the posterior probabilities.
-
-5. Now that we have our posterior distribution over the entire parameter space, we can find the posterior distributions of our individual parameters by summing over the posterior distributions of the other parameters (i.e., if we want to look at the posterior distribution of the slope, we sum over the posterior distribution of the y-intercept). We call this procedure "marginalizing."
-
-(See diagram)
+* e) Now that we have our posterior distribution over the entire parameter space, we can find the posterior distributions of our individual parameters by summing over the posterior distributions of the other parameters (i.e., if we want to look at the posterior distribution of the slope, we sum over the posterior distribution of the y-intercept). We call this procedure "marginalizing."
+(See diagram.)
 
 ![](jointmarginalsmall.jpg)
 
