@@ -16,7 +16,7 @@ alphatrue=2. # slope
 betatrue=5.  # intercept
 errs=2.5 # sigma (amplitude of errors)
 
-narr=50. # number of data points, change to 10, 100
+narr=50 # number of data points, change to 10, 100
 xvals = np.arange(narr) + 1. # xvals range from 1-51
 yvals = alphatrue*xvals + betatrue+ npr.normal(0,errs,narr) # yvals 
 # What does npr.normal do? - adds scatter in y-direction from Gaussian distribution 
@@ -46,16 +46,8 @@ plt.plot(xvals,yfitvals,'r')
 
 # Compute analytic uncertainties on slope and y-intercept 
 
-# slope error - break up into pieces to keep simple
-inputa1=np.sum((yvals-yfitvals)**2.)
-inputa2=np.sum((xvals-np.mean(xvals))**2)
-inputa3=1./(narr-2.)
-alphaunc=np.sqrt(inputa3*inputa1/inputa2)
-
-inputb1=inputa3*inputa1 
-inputb2=(1./narr)
-inputb3=(np.mean(xvals)**2)/(inputa2)
-betaunc=np.sqrt(inputb1*(inputb2+inputb3))
+alphaunc = np.sqrt(np.sum((yvals - (alphaest*xvals+betaest))**2) / ((narr-2.)*(np.sum((xvals-np.mean(xvals))**2))))
+betaunc = np.sqrt((np.sum((yvals - (alphaest*xvals+betaest))**2) / (narr-2.)) * ((1./narr) + (np.mean(xvals)**2)/np.sum((xvals-np.mean(xvals))**2)) )
 
 print("analytical MLE uncertainty on alpha is %0.7f" % (alphaunc))
 print("analytical MLE uncertainty on beta is %0.7f" % (betaunc))
