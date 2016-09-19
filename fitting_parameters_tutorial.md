@@ -66,7 +66,7 @@ In `paramfit1.py` we create fake data with known slope and y-intercept. We then 
 3. For linear least squares fitting, we can obtain analytical formulae for the uncertainties on the slope
 and y-intercept estimates, which have been provided below. (See http://mathworld.wolfram.com/LeastSquaresFitting.html for the full derivation.)<br><br>
 <img src="https://latex.codecogs.com/png.latex?\sigma_\alpha^2=\frac{\sum\left(y_i-\left(\alpha&space;x_i&plus;\beta\right)\right&space;)^2}{(N-2)\sum(x_i-\bar{x})^2}"/><br>
-<img src="https://latex.codecogs.com/png.latex?\sigma_\beta^2=\left(\frac{\sum\left(y_i-\left(\alpha&space;x_i&plus;\beta\right)\right)^2}{N-2}\right)&space;\left(\frac{1}{N}+\frac{\bar{x}}{\sum(x_i-\bar{x})^2}\right)"/><br><br>
+<img src="https://latex.codecogs.com/png.latex?\sigma_\beta=\sqrt{\left(\frac{\sum\left(y_i-\left(\alpha&space;x_i&plus;\beta\right)\right)^2}{N-2}\right)&space;\left(\frac{1}{N}+\frac{(\bar{x})^2}{\sum(x_i-\bar{x})^2}\right)}"/><br><br>
 Add code to compute the uncertainties for the slope and y-intercept analytically. Which parameter has larger fractional
 uncertainty?
 
