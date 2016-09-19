@@ -73,19 +73,28 @@ betaposs=np.arange(gridsize2) / 10.  # and here?
 
 # A flat prior in slope amounts to a non-flat prior on the angle = tan(y/x), weighting our fit more heavily to steeper values of slope
 
-# We can then determine a prior that compensates for this unequal spacing in angle
-# Read through http://jakevdp.github.io/blog/2014/06/14/frequentism-and-bayesianism-4-bayesian-in-python/ for more details on obtaining this prior
+# We can determine a prior that compensates for this unequal spacing in angle
+# Read through the top portion of
+# http://jakevdp.github.io/blog/2014/06/14/frequentism-and-bayesianism-4-bayesian-in-python/ for more details on obtaining this prior
+# from "Test Problem: Line of Best Fit" through "Prior on Slope and Intercept"
+# stopping at "Prior on sigma"
 # Note that they have reversed the notation for the slope and y-intercept from our convention. The prior is written as (1+slope**2)**(-3./2.)
+# Also note we can use the slope prior probability distribution without
+# normalizing, because we will only consider relative probabilities.
+
+# prioronintercept_flat = 1.
+# prioronslope_flat = ?
+# prioronslope_uninformative = ?
 
 # remember Bayes's theorem: P(M|D)=P(D|M)*P(M)/P(D)
 # P(M|D) is the posterior probability distribution 
 # P(D|M) is the likelihood of the data given the model
-# P(M) is the prior
-# P(D) is the normalization
+# P(M) is the prior probability of the model = prioronslope x prioronintercept
+# P(D) is the normalization ("probability of the data")
 
 # For computational convenience, we'll want to compute the log of the posterior probability distribution:
-# postprob = exp(-1*chisq/2)*prior
-# ln(postprob) =-1*chisq/2 + ln(prior)
+# so instead of postprob = exp(-1*chisq/2)*prior
+# we'll compute ln(postprob) =-1*chisq/2 + ln(prior) 
 
 # Compute the posterior probability for all possible models with two different priors
 #lnpostprob_flat=np.zeros((gridsize1,gridsize2)) # setup an array to contain those values for the flat prior
@@ -96,7 +105,7 @@ betaposs=np.arange(gridsize2) / 10.  # and here?
 #        modelvals = alphaposs[i]*xvals+betaposs[j] # compute yfit for given model
 #        resids = (yvals - modelvals) # compute residuals for given grid model
 #        chisq = np.sum(resids**2 / errs**2) # compute chisq 
-#        priorval_flat=1.  # uniform prior
+#        priorval_flat = prioronintercept_flat * prioronslope_flat  # uniform prior
 #        priorval_comp=?   # prior to compensate for unequal spacing of angles
 #        lnpostprob_flat[i,j] = (-1./2.)*chisq + np.log(priorval_flat)      
 #        lnpostprob_comp[i,j] = ? + ?
