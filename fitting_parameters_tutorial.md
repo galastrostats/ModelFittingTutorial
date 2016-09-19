@@ -75,7 +75,7 @@ Use `np.polyfit` to compute the MLE slope and y-offset for the data set numerica
 In this example we have assumed that the &sigma; on all data points is the same. This simplified assumption is often not the case. If the uncertainties are different, then we must include each data point's uncertainty within the MLE calculation.
 
 * e) One numerical method to determine uncertainties is to have `np.polyfit` compute the covariance matrix:
-<img src="https://latex.codecogs.com/png.latex?C=\begin{pmatrix}\sigma_a^2&cov(\alpha,\beta)\\cov(\alpha,\beta)&\sigma_\beta^2\end{pmatrix}"/> which is the inverse of the Hessian Matrix (composed of second derivatives of the log likelihood with respect to different model parameters).<br><br>
+<img src="https://latex.codecogs.com/png.latex?C=\begin{pmatrix}\sigma_a^2&cov(\alpha,\beta)\\cov(\alpha,\beta)&\sigma_\beta^2\end{pmatrix}"/> which is the inverse of the Hessian Matrix, consisting of second derivatives of the log likelihood with respect to different model parameters. (When these matrices get tricky to compute, we can resort to a more approximate numerical technique such as the bootstrap.)<br><br>
 `np.polyfit` will compute the covariance matrix numerically if you add `cov="True"` to the `np.polyfit` function call. Print out the uncertainties computed using the covariance matrix. Are they the same as the analytical solution? What happens to the uncertainties if you increase/decrease the number of data points? What happens to the percentage difference between the analytical and numerical methods if you increase/decrease the number of data points?
 
 ### Optional Activity 2: zombies 1
