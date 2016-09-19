@@ -91,18 +91,18 @@ In this example we have assumed that the &sigma; on all data points is the same.
 3. P(D) - probability of the data, essentially a normalization factor
 4. P(M|D) - the posterior probability distribution of the model given the data
 
-Whereas in MLE, we maximized the likelihood function to find the single "best" set of parameters, in Bayesian analysis we construct the posterior probability distribution, which is the distribution of probabilities for a grid of models spanning ranges of parameters where we think our parameters are likely to be (meaning we are setting the "prior" to 0 outside these ranges). To do this in practice, we compute the likelihood of the data given each model multiplied by the prior for each model over the entire model grid. In many problems scientists will assume a flat prior (all grid points weighted equally), and then the posterior probability distribution is proportional to the likelihood.
+Whereas in MLE, we maximized the likelihood function to find the single "best" set of parameters, in Bayesian analysis we construct the posterior probability distribution, which is the distribution of probabilities that each model is correct in a set of models defined by different parameter values. A common approach is to generate a grid of models spanning parameter value ranges where we think our parameters are likely to be, meaning we set the "prior" to 0 outside these ranges. To do this in practice, we compute the likelihood of the data given each model multiplied by the prior for each model over the entire model grid. In many problems scientists will assume a flat prior (all grid points weighted equally), and then the posterior probability distribution is proportional to the likelihood.
 
 ### Activity 2: paramfit2.py
 
-In `paramfit2.py` we use the same fake data set created in `paramfit1.py`. This time, however, we will determine the slope and y-intercept through Bayesian analysis by constructing a grid of possible values of the slope and y-intercept and evaluating the posterior probability at each grid point. Fill in any lines of code ending in "?".
+In `paramfit2.py` we will use the same fake data set created in `paramfit1.py`. This time, however, we will determine the slope and y-intercept through Bayesian analysis by constructing a grid of possible values of the slope and y-intercept and evaluating the posterior probability at each grid point. Fill in any lines of code ending in "?".
 
 * a) Run `paramfit2.py` and plot the fake data. Set up grids for the y-intercept and slope values that make sense. What values are we considering for the slope and the y-intercept? What is the implicit prior on the slope and y-intercept that we are considering?
 
 * b) Check that the model space from the choice of grid values for both the y-intercept and slope is also uniformly distributed. To do this plot a series of lines using all possible y-intercepts (`y=x+beta_i`) and then all possible slopes (`y=x*alpha_i`). Is the model space from the y-intercept parameter evenly spaced? Is the model space from the slope parameter evenly spaced? Note that uniform priors can be uniform in the parameter or in a function of the parameter, e.g. slope, log(slope), tan(slope), depending on what physically makes sense. What is a physically motivated definition of "evenly spaced" for the slope, based on studying the plots?
 
 * c) Read through: http://jakevdp.github.io/blog/2014/06/14/frequentism-and-bayesianism-4-bayesian-in-python/. How can we write a prior that compensates for the non-uniform weighting of the angles?<br><br>
-**Note that in this article the definition of alpha and beta are reversed: y = α + βx. ** 
+**Note that in the article the definition of alpha and beta are reversed to be y = α + βx. ** 
 
 * d) Using the fake data, compute the posterior probability distributions (posterior distributions for short) for the entire grid assuming 1) flat priors on the values of the slopes and y-intercepts (non-uniform in the angle) and 2) the prior that compensates and creates a uniform angular distribution. Pay attention to where the prior appears in the equation for computing the posterior probabilities.
 
