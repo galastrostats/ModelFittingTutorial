@@ -101,7 +101,7 @@ In `paramfit2.py` we will use the same fake data set created in `paramfit1.py`. 
 
 * b) Check that the model space from the choice of grid values for both the y-intercept and slope is also uniformly distributed. To do this plot a series of lines using all possible y-intercepts (`y=x+beta_i`) and then all possible slopes (`y=x*alpha_i`). Is the model space from the y-intercept parameter evenly spaced? Is the model space from the slope parameter evenly spaced? Note that uniform priors can be uniform in the parameter or in a function of the parameter, e.g. slope, log(slope), tan(slope), depending on what physically makes sense. What is a physically motivated definition of "evenly spaced" for the slope, based on studying the plots?
 
-* c) Read through: http://jakevdp.github.io/blog/2014/06/14/frequentism-and-bayesianism-4-bayesian-in-python/. How can we write a prior that compensates for the non-uniform weighting of the angles?<br><br>
+* c) Read through: http://jakevdp.github.io/blog/2014/06/14/frequentism-and-bayesianism-4-bayesian-in-python/. How can we write a prior that compensates for the non-uniform weighting of the angles?
 **Note that in the article the definition of alpha and beta are reversed to be y = α + βx. ** 
 
 * d) Using the fake data, compute the posterior probability distributions (posterior distributions for short) for the entire grid assuming 1) flat priors on the values of the slopes and y-intercepts (non-uniform in the angle) and 2) the prior that compensates and creates a uniform angular distribution. Pay attention to where the prior appears in the equation for computing the posterior probabilities.
