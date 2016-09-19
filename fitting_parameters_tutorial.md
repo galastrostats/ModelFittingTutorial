@@ -97,7 +97,7 @@ Whereas in MLE, we maximized the likelihood function to find the single "best" s
 
 In `paramfit2.py` we will use the same fake data set created in `paramfit1.py`. This time, however, we will determine the slope and y-intercept through Bayesian analysis by constructing a grid of possible values of the slope and y-intercept and evaluating the posterior probability at each grid point. Fill in any lines of code ending in "?".
 
-* a) Run `paramfit2.py` and plot the fake data. Set up grids for the y-intercept and slope values that make sense. What values are we considering for the slope and the y-intercept? What is the implicit prior on the slope and y-intercept that we are considering?
+* a) Run `paramfit2.py` and plot the fake data. The code has preset grids for the y-intercept and slope values. What values are being considered? What are the implicit priors on the slope and y-intercept?
 
 * b) Check that the model space from the choice of grid values for both the y-intercept and slope is also uniformly distributed. To do this plot a series of lines using all possible y-intercepts (`y=x+beta_i`) and then all possible slopes (`y=x*alpha_i`). Is the model space from the y-intercept parameter evenly spaced? Is the model space from the slope parameter evenly spaced? Note that uniform priors can be uniform in the parameter or in a function of the parameter, e.g. slope, log(slope), tan(slope), depending on what physically makes sense. What is a physically motivated definition of "evenly spaced" for the slope, based on studying the plots?
 
