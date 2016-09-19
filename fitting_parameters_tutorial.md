@@ -59,19 +59,18 @@ For more complicated functions or if the uncertainties are not uniform, setting 
 
 In `paramfit1.py` we create fake data with known slope and y-intercept. We then compute the maximum likelihood estimated slope and y-intercept for the fake data. Fill in lines ending with "?" and answer questions by putting your own comments in the code.
 
-1. Run the program `paramfit1.py` and plot the data. What is `npr.normal` used to do in line 21?
+1. Run the program `paramfit1.py` and plot the data. What aspect of a real data set is `npr.normal` used to emulate? What assumption is made in the code that is key to the least squares approach?
 
-2. Read over the MLE derivation for the linear least squares analytical solution (above) and compute the slope and y-intercept for the fake data set. Plot the best fit solution on top of the data. What is the assumption that we made for the uncertainties on our fake data, and where in the code was it made?
+2. Read over the derivation for the linear least squares analytical solution (above) and add code to compute the estimated slope and y-intercept based on the fake data set. Plot the maximum likelihood ("best fit") solution on top of the data.
 
 3. For linear least squares fitting, we can obtain analytical formulae for the uncertainties on the slope
-and y-intercept estimates, which have been provided below.
+and y-intercept estimates, which have been provided below. (See http://mathworld.wolfram.com/LeastSquaresFitting.html for the full derivation.)
 
 <img src="https://latex.codecogs.com/png.latex?\sigma_\alpha^2=\frac{\sum\left(y_i-\left(\alpha&space;x_i&plus;\beta\right)\right&space;)^2}{(N-2)\sum(x_i-\bar{x})^2}"/>
 
 <img src="https://latex.codecogs.com/png.latex?\sigma_\beta^2=\left(\frac{\sum\left(y_i-\left(\alpha&space;x_i&plus;\beta\right)\right)^2}{N-2}\right)&space;\left(\frac{1}{N}+\frac{\bar{x}}{\sum(x_i-\bar{x})^2}\right)"/>
 
-See http://mathworld.wolfram.com/LeastSquaresFitting.html for the full derivation. Compute the
-uncertainties for the slope and y-intercept analytically. Which parameter has larger fractional
+Add code to compute the uncertainties for the slope and y-intercept analytically. Which parameter has larger fractional
 uncertainty?
 
 Read up on `np.polyfit`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.polyfit.html
