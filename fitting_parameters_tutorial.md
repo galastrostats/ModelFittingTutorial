@@ -74,8 +74,8 @@ uncertainty?
 Use `np.polyfit` to compute the MLE slope and y-offset for the data set numerically rather than analytically. Do you get the same result as in the analytical case from part b? Note that `np.polyfit` does not automatically take an array of uncertainties on the y value. If the uncertainty on each data point is different, we can input an optional weight vector: `fit=np.polyfit(xvals, yvals, 1, w=1/sig)` where `sig` is an array containing the uncertainty on each data point. Note that the input is `1/sig` rather than `1/sig**2` as you might expect from the equations above. The `np.polyfit` function squares the weight value within the source code.<br><br>
 In this example we have assumed that the &sigma; on all data points is the same. This simplified assumption is often not the case. If the uncertainties are different, then we must include each data point's uncertainty within the MLE calculation.
 
-* e) Another method to determine the uncertainties is to use the covariance matrix:
-<img src="https://latex.codecogs.com/png.latex?C=\begin{pmatrix}\sigma_a^2&cov(\alpha,\beta)\\cov(\alpha,\beta)&\sigma_\beta^2\end{pmatrix}"/> which is the inverse of the Hessian Matrix (in pre-tutorial reading)<br><br>
+* e) One numerical method to determine uncertainties is to have `np.polyfit` compute the covariance matrix:
+<img src="https://latex.codecogs.com/png.latex?C=\begin{pmatrix}\sigma_a^2&cov(\alpha,\beta)\\cov(\alpha,\beta)&\sigma_\beta^2\end{pmatrix}"/> which is the inverse of the Hessian Matrix (composed of second derivatives of the log likelihood with respect to different model parameters).<br><br>
 `np.polyfit` will compute the covariance matrix numerically if you add `cov="True"` to the `np.polyfit` function call. Print out the uncertainties computed using the covariance matrix. Are they the same as the analytical solution? What happens to the uncertainties if you increase/decrease the number of data points? What happens to the percentage difference between the analytical and numerical methods if you increase/decrease the number of data points?
 
 ### Optional Activity 2: zombies 1
