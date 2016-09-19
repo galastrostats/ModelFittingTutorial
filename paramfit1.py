@@ -1,15 +1,12 @@
 """
-Part I, First activity in Parameter Fitting Tutorial
-Modified by Katie Eckert from ASTR502 activity written by Sheila Kannappan
-June 24, 2015
+Part I activity in Parameter Fitting Tutorial
+Modified by Kathleen Eckert from an activity written by Sheila Kannappan
+June 2015
 """
 
 import numpy as np
 import matplotlib.pyplot as plt
 import numpy.random as npr
-import pylab
-pylab.ion()
-
 
 # Generating fake data set to start with:
 alphatrue=2. # slope

@@ -1,22 +1,19 @@
 """
-Part 2, third activity in Parameter Fitting Tutorial
-Modified by Katie Eckert from ASTR502 activity written by Sheila Kannappan
-June 24, 2015
+Part II activity in Parameter Fitting Tutorial
+Modified by Kathleen Eckert from an activity written by Sheila Kannappan
+June 2015
 """
 
 import numpy as np
 import matplotlib.pyplot as plt
 import numpy.random as npr
-import pylab
-pylab.ion()
-
 
 # Generating fake data set (same as in paramfit1.py) to start with:
 alphatrue=2. # slope
 betatrue=5.  # intercept
 errs=2.5 # sigma (amplitude of errors)
 
-narr=50. # number of data points
+narr=50 # number of data points
 xvals = np.arange(narr) + 1.
 yvals = alphatrue*xvals + betatrue+ npr.normal(0,errs,narr)
 
