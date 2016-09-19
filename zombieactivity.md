@@ -1,5 +1,5 @@
 # Zombie Activity
-A python activity by Kathleen Eckert with help from Sheila Kannappan.
+A python activity written by Kathleen Eckert in June 2015 with help from Sheila Kannappan.
 
 ### Activity 1: Frequentist Zombies
 
