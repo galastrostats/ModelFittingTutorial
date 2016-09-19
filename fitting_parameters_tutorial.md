@@ -117,22 +117,9 @@ Plot the marginalized posterior distributions of the slope using the two differe
 
 In Bayesian analysis, it is important to think about the questions you are trying to answer when setting up the problem. Starting with a well understood model grid and set of priors is key. In this case do you want a flat prior on the slope and y-intercept, or do you want a prior that compensates for the unequal distribution in angles? What range do you want to compute your data over? How finely should you bin the grids?
 
-### Optional - Activity 4: zombies 2
+## Part III: Zombies!
 
-For this activity you will write your own code (but remember that you can take portions of previous code to make the process faster).
+To cement your understanding, complete this [coding activity](https://github.com/galastrostats/ModelFittingTutorial/blob/master/zombieactivity.md) in which the codes are not written for you.
 
-A virus has gotten out that is turning humans into zombies. You as a scientist have been recording the % of zombies ever since the outbreak (~14 days ago). However the power has gone out for the past four days and your generator just kicked in allowing you to analyze the data and determine when there will be no humans left (`% humans = [1-% zombies] = 0`). where `time=0` is the present day (`time = -14` is 14 days ago when you started taking data). Use your Bayesian skills now to perform this analysis.
-
-1. Read in the data and plot it as % human vs. time in blue stars (Figure 1).
-
-2. Set up grids for your parameter space assuming a set of linear models for the data. Based on your output from `zombies1.py`, what ranges should you try? Compute the posterior distribution. Which prior should you want to use?
-
-3. Determine the marginalized posterior distribution for the percentage of humans today (`time=0`). Which parameter must you marginalize over? In Figure 2, plot the marginalized posterior distribution for the percentage of humans today (`time=0`) as red stars. What is the most likely % of humans alive today?
-
-4. Using the prior that you yourself are not a zombie yet, recompute the posterior distribution and determine the marginalized posterior distribution for % of humans alive today (`time=0`). In Figure 2, over plot the new marginalized posterior distribution as green dots.
-
-5. How does the Bayesian analysis for determining the % of humans today compare with the value from the MLE fit from the second activity?
-
-For more information on the Bayesian approach, tutorials are available on the website below, which are all provided in python notebooks) http://jakevdp.github.io/blog/2014/06/14/frequentism-and-bayesianism-4-bayesian-in-python/ .
-
+For more information on the Bayesian approach, tutorials are available at [this website](http://jakevdp.github.io/blog/2014/06/14/frequentism-and-bayesianism-4-bayesian-in-python/).
 
