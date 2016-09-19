@@ -59,22 +59,22 @@ For more complicated functions or if the uncertainties are not uniform, setting 
 
 In `paramfit1.py` we create fake data with known slope and y-intercept. We then compute the maximum likelihood estimated slope and y-intercept for the fake data. Fill in lines ending with "?" and answer questions by putting your own comments in the code.
 
-1. Run the program `paramfit1.py` and plot the data. What aspect of a real data set is `npr.normal` used to emulate? What assumption is made in the code that is key to the least squares approach?
+* a) Run the program `paramfit1.py` and plot the data. What aspect of a real data set is `npr.normal` used to emulate? What assumption is made in the code that is key to the least squares approach?
 
-2. Read over the derivation for the linear least squares analytical solution (above) and add code to compute the estimated slope and y-intercept based on the fake data set. Plot the maximum likelihood ("best fit") solution on top of the data.
+* b) Read over the derivation for the linear least squares analytical solution (above) and add code to compute the estimated slope and y-intercept based on the fake data set. Plot the maximum likelihood ("best fit") solution on top of the data.
 
-3. For linear least squares fitting, we can obtain analytical formulae for the uncertainties on the slope
+* c) For linear least squares fitting, we can obtain analytical formulae for the uncertainties on the slope
 and y-intercept estimates, which have been provided below. (See http://mathworld.wolfram.com/LeastSquaresFitting.html for the full derivation.)<br><br>
 <img src="https://latex.codecogs.com/png.latex?\sigma_\alpha=\sqrt{\frac{\sum\left(y_i-\left(\alpha&space;x_i&plus;\beta\right)\right&space;)^2}{(N-2)\sum(x_i-\bar{x})^2}}"/><br>
 <img src="https://latex.codecogs.com/png.latex?\sigma_\beta=\sqrt{\left(\frac{\sum\left(y_i-\left(\alpha&space;x_i&plus;\beta\right)\right)^2}{N-2}\right)&space;\left(\frac{1}{N}+\frac{(\bar{x})^2}{\sum(x_i-\bar{x})^2}\right)}"/><br><br>
 Add code to compute the uncertainties for the slope and y-intercept analytically. Which parameter has larger fractional
 uncertainty?
 
-4. Read up on `np.polyfit`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.polyfit.html <br><br>
+* d) Read up on `np.polyfit`: http://docs.scipy.org/doc/numpy/reference/generated/numpy.polyfit.html <br><br>
 Use `np.polyfit` to compute the MLE slope and y-offset for the data set numerically rather than analytically. Do you get the same result as in the analytical case from part b? Note that `np.polyfit` does not automatically take an array of uncertainties on the y value. If our uncertainties on each data point are different, we can input an optional weight vector: `fit=np.polyfit(xval, yval, 1, w=1/sig)` where `sig` is an array containing the uncertainty on each data point. Note that the input is `1/sig` rather than `1/sig^2` as you might expect from the equations above. The `np.polyfit` function squares the weight value within the source code.<br><br>
 In this example we have assumed that the uncertainty on all of our data points is the same. This simplified assumption is often not the case. If the uncertainties are different, then must include each data point's uncertainty within the MLE calculation.
 
-5. Another method to determine the uncertainties is to use the covariance matrix:
+* e) Another method to determine the uncertainties is to use the covariance matrix:
 <img src="https://latex.codecogs.com/png.latex?C=\begin{pmatrix}\sigma_a^2&cov(\alpha,\beta)\\cov(\alpha,\beta)&\sigma_\beta^2\end{pmatrix}"/> which is the inverse of the Hessian Matrix (in pre-tutorial reading)<br><br>
 `np.polyfit` will compute the covariance matrix numerically if you add `cov="True"` to the `np.polyfit` function call. Print out the uncertainties computed using the covariance matrix. Are they the same as the analytical solution? What happens to the uncertainties if you increase/decrease the number of data points? What happens to the percentage difference between the analytical and numerical methods if you increase/decrease the number of data points?
 
