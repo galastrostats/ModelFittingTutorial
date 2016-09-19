@@ -2,7 +2,7 @@
 
 A python tutorial by Kathleen Eckert adapted from tutorials by Sheila Kannappan & Amy Oldenberg June 2015. Edited by Rohan Isaac and Sheila Kannappan Sept. 2016.
 
-In this respository there are python codes (paramfit1.py and paramfit2.py) that contain partial answers for you to finish.
+In this repository there are python codes, [paramfit1.py](paramfit1.py) and [paramfit2.py](paramfit2.py), that contain partial answers for you to finish.
 
 **Why do we fit models to data?**
 
@@ -55,7 +55,7 @@ from **eqn 2** <img src="https://latex.codecogs.com/png.latex?\beta=\bar{y}-\alp
 
 For more complicated functions or if the uncertainties are not uniform, setting the derivatives of the likelihood equal to zero may not lead to equations that are easily solved analytically, so we typically use programs such as `np.polyfit` to determine the parameters numerically.
 
-### Activity 1: paramfit1.py
+### Activity 1: [paramfit1.py](paramfit1.py)
 
 In `paramfit1.py` we create fake data with known slope and y-intercept. We then compute the maximum likelihood estimated slope and y-intercept for the fake data. Fill in lines ending with "?" and answer questions by putting your own comments in the code.
 
@@ -93,7 +93,7 @@ In this example we have assumed that the &sigma; on all data points is the same.
 
 Whereas in MLE, we maximized the likelihood function to find the single "best" set of parameters, in Bayesian analysis we construct the posterior probability distribution, which is the distribution of probabilities that each model is correct in a set of models defined by different parameter values. A common approach is to generate a grid of models spanning parameter value ranges where we think our parameters are likely to be, meaning we set the "prior" to 0 outside these ranges. To do this in practice, we compute the likelihood of the data given each model multiplied by the prior for each model over the entire model grid. In many problems scientists will assume a flat prior (all grid points weighted equally), and then the posterior probability distribution is proportional to the likelihood.
 
-### Activity 2: paramfit2.py
+### Activity 2: [paramfit2.py](paramfit2.py)
 
 In `paramfit2.py` we will use the same fake data set created in `paramfit1.py`. This time, however, we will determine the slope and y-intercept through Bayesian analysis by constructing a grid of possible values of the slope and y-intercept and evaluating the posterior probability at each grid point. Fill in any lines of code ending in "?".
 
