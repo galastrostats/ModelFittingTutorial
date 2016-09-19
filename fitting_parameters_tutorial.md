@@ -135,10 +135,4 @@ A virus has gotten out that is turning humans into zombies. You as a scientist h
 
 For more information on the Bayesian approach, tutorials are available on the website below, which are all provided in python notebooks) http://jakevdp.github.io/blog/2014/06/14/frequentism-and-bayesianism-4-bayesian-in-python/ .
 
-### Optional - Activity 5: Mathematical Optimization
-
-*Mathematical optimization* is finding the best option within a set of possibilities using a certain criterion (see https://en.wikipedia.org/wiki/Mathematical_optimization for more information). For instance in Least Squares Fitting, we have optimized the rms (a single number value), by determining the values of the slope and y-intercept that minimized the rms. In general, one could define any mathematical criterion for optimization, where optimization is defined by a variety of operations (although it is usually maximizing or minimizing the criterion). Read through optimizationTutorial.pdf, written by Zane Beckwith, (a former CAP REU graduate assistant). It provides an overview of the topic of optimization along with several different examples of different types of optimization algorithms.
-
- At the end of the write up, Zane has a short tutorial for which he has provided two codes: `scatter.py` & `neldermead.py`. Both of these python programs actually contain function definitions and can be read into your own code using the **import** command. To complete the activity, you would use the function **minimize** from `neldermead.py` to find minima of the Himmelblau function, which is provided by the function **simulate** in `scatter.py`. I have provided my own example of how to do this in `zanesprob.py`.
-
 
