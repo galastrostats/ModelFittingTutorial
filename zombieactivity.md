@@ -17,7 +17,7 @@ A virus has gotten out that is turning humans into zombies. You as a scientist h
 
 * e) What happens when you increase the order of the fit (% humans vs. time)? Overplot the higher order fits on figure 1. What happens to the residuals if you increase the order of the fit (see **np.polyfit**, and optionally **np.polyval**)? Overplot the new residuals in time compared to the residuals from the linear fit from part b on figure 2.
 
-* f) Calculate the reduced χ<sup>2</sup>for these higher order fits – do they yield as good a fit to the data as the linear fit?
+* f) Calculate the reduced χ<sup>2</sup> for these higher order fits – do they yield as good a fit to the data as the linear fit? Does the fit you most trust imply that you are a zombie?
 
 ### Activity 2: Bayesian Zombies
 
