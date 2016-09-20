@@ -1,14 +1,12 @@
 """
 First Zombies Activity
-Solutions Written by Katie Eckert
+Solutions Written by Katie Eckert; Ndof corrected in Chi^2 calculations by Sheila Kannappan
 June 24, 2015
 """
 
 import numpy as np
 import matplotlib.pyplot as plt
 import numpy.random as npr
-import pylab
-pylab.ion()
 
 
 # You have been recording the % of zombies since a virus outbreak ~14 days ago.
@@ -80,18 +78,18 @@ plt.clf()
 plt.plot(time,perhumanresids,'g*',markersize=15)
 plt.xlabel("time")
 plt.ylabel("residuals in % human")
-redchisq1=np.sum(perhumanresids**2/err**2)*(1./(np.size(perhuman)))
+redchisq1=np.sum(perhumanresids**2/err**2)*(1./(np.size(perhuman)-2))
 print("Reduced Chi^2 value of linear fit = %f" % (redchisq1))
 # how well does our linear fit describe the data? - large value, but small number of data points, useful to compare with other data
 
 # What happens if our error is underestimated?
 erra=5.0 # what if 3% is an underestimate and the errors are really 5%
-redchisq1a=np.sum(perhumanresids**2/erra**2)*(1./(np.size(perhuman)))
+redchisq1a=np.sum(perhumanresids**2/erra**2)*(1./(np.size(perhuman)-2))
 print("Reduced Chi^2 value of linear fit with uncertainty = %f percent is %f" % (erra,redchisq1a)) # so we would have overestimated the reduced Chi^2
 
 # What happens if our error is overestimated?
 errb=1.0 # whatif 3% is an overestimate and the errors are really 1%
-redchisq1b=np.sum(perhumanresids**2/errb**2)*(1./(np.size(perhuman)))
+redchisq1b=np.sum(perhumanresids**2/errb**2)*(1./(np.size(perhuman)-2))
 print("Reduced Chi^2 value of linear fit with uncertainty = %f percent is %f" % (errb,redchisq1b)) # so we would have underestimated the reduced chi^2 value
 
 # If our uncertainties are overestimated, the chi^2 value gets smaller (think our fit is better than it is), and if they are underestimated the chi^2 value gets larger (think our fit is worse than it is)
@@ -111,7 +109,7 @@ plt.figure(1)
 plt.plot(xval,np.polyval(p2,xval),'m')
 plt.plot(xval,np.polyval(p3,xval),'c')
 plt.plot(xval,np.polyval(p4,xval),'y')
-print("oh wow these fits vary a lot, not sure if I trust them")
+
 
 # Overplot residuals on figure 2
 plt.figure(2)
@@ -123,9 +121,9 @@ plt.plot(time,perhuman-np.polyval(p4,time),'y^',markersize=10)
 
 # f) Compute reduced chi^2 for higher order fits
 # 
-redchisq2=np.sum((perhuman-np.polyval(p2,time))**2/err**2)*(1./np.size(perhuman))
-redchisq3=np.sum((perhuman-np.polyval(p3,time))**2/err**2)*(1./np.size(perhuman))
-redchisq4=np.sum((perhuman-np.polyval(p4,time))**2/err**2)*(1./np.size(perhuman))
+redchisq2=np.sum((perhuman-np.polyval(p2,time))**2/err**2)*(1./(np.size(perhuman)-3))
+redchisq3=np.sum((perhuman-np.polyval(p3,time))**2/err**2)*(1./(np.size(perhuman)-4))
+redchisq4=np.sum((perhuman-np.polyval(p4,time))**2/err**2)*(1./(np.size(perhuman)-5))
 
 print("reduced Chi^2 values")
 print("1st order = %f" %redchisq1)
@@ -134,3 +132,4 @@ print("3rd order = %f" %redchisq3)
 print("4th order = %f" %redchisq4)
 
 # Even though the reduced Chi^2 value for the linear fit is > 1, the higher order polynomial fits are much smaller <1, indicating that they are overfitting the data. For N=10 data points, we must make sure not to increase the order of our fit too high. 
+# Best Chi^2 is almost certainly for the 2nd order fit, which says... everyone's a zombie
