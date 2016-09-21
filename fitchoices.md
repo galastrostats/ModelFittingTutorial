@@ -10,6 +10,6 @@ For each fit, compute the rms scatter as well as the biweight scatter in the y-d
 
 Now, add Gaussian scatter to x with a sigma of 3 and repeat your fits and scatter measurements. Which type of fit appears most correct now? Consider your “gut feeling” as well as the original true relation. Why might these not agree? Why does the lowest rms scatter in y not correspond to the best fit anymore? Can you see another way of computing the rms scatter by which the best fit would in fact correspond to the lowest scatter? Why do the biweight and rms scatter look similar now?
 
-Finally, add a selection bias on x, such that x cannot be detected below 3. Repeat your fits and again discuss which fit appears most correct vs. is actually most correct. Is there a better way to approach fitting the data in this case? You may wish to browse this paper: [Hogg, Bovy, \& Lang (2010](http://lanl.arxiv.org/abs/1008.4686).
+Finally, add a selection bias on x, such that x cannot be detected below 3. Repeat your fits and again discuss which fit appears most correct vs. is actually most correct. Is there a better way to approach fitting the data in this case? You may wish to browse this paper: [Hogg, Bovy, \& Lang (2010)](http://lanl.arxiv.org/abs/1008.4686).
 
 All of the above assumed that the goal was to measure the true, underlying relationship between x and y.  What if your goal were to find the best predictive relation between the two, in order to predict y with greatest accuracy for a given x. How would the optimal choice of fit type change in this case?
