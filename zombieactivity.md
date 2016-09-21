@@ -5,7 +5,7 @@ A python activity written by Kathleen Eckert in June 2015 with input from Sheila
 
 For this activity you will write your own code, but remember that you can use the [python quick reference card](http://user.physics.unc.edu/~sheila/PythonQuickReference.pdf) and codes from previous tutorials to help you write the code faster. You should work together with a partner or small group on this part. My solutions are provided in `zombies1.py.sln` in this repository.
 
-A virus has gotten out that is turning humans into zombies. You as a scientist have been recording the % of zombies ever since the outbreak (~14 days ago). However the power has gone out for the past four days and your generator just kicked in allowing you to analyze the data and determine when there will be no humans left (`% humans = [1- % zombies] = 0`). Your data are in `percentzombie.txt` where `time=0` is the present day (`time = -14` is 14 days ago when you started taking data).
+A virus has gotten out that is turning humans into zombies. You as a scientist have been recording the % of zombies ever since the outbreak (~14 days ago). However the power has gone out for the past four days and your generator just kicked in allowing you to analyze the data and determine when there will be no humans left (`% humans = [1- % zombies] = 0`). Your data are in [percentzombie.txt](https://github.com/galastrostats/ModelFittingTutorial/blob/master/percentzombie.txt) where `time=0` is the present day (`time = -14` is 14 days ago when you started taking data).
 
 * a) Read in your data and plot it as % human vs. time as blue stars. The uncertainties on both time and % zombie are unknown.
 
