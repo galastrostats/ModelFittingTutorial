@@ -1,4 +1,4 @@
-# Choosing Between Frequentist Fitting Methods and Scatter Estimators
+# Choosing Between Fitting Methods and Scatter Estimators in the Frequentist Paradigm
 
 
 
