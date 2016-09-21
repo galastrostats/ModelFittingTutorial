@@ -12,4 +12,4 @@ Now, add Gaussian scatter to x with a sigma of 3 and repeat your fits and scatte
 
 Finally, add a selection bias on x, such that x cannot be detected below 3. Repeat your fits and again discuss which fit appears most correct vs. is actually most correct. Is there a better way to approach fitting the data in this case? You may wish to browse this paper: [Hogg, Bovy, \& Lang (2010)](http://lanl.arxiv.org/abs/1008.4686).
 
-All of the above assumed that the goal was to measure the true, underlying relationship between x and y.  What if your goal were to find the best predictive relation between the two, in order to predict y with greatest accuracy for a given x. How would the optimal choice of fit type change in this case?
+All of the above assumed that the goal was to measure the true, underlying relationship between x and y.  What if your goal is to find the best predictive relation between the two, in order to predict y with greatest accuracy for a given x. How would the optimal choice of fit type change in this case?
