@@ -55,7 +55,6 @@ betaposs=np.arange(gridsize2) / 10.  # and here?
 #plt.xlabel("x values")
 #plt.ylabel("y values for several values of y-intercept (y=x+beta)")
 #plt.title("test y-intercept prior")
-# yes - evenly spaced uniform input distribution
 
 
 # Test slope at fixed y-intercept of zero
