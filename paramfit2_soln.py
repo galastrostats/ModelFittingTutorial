@@ -201,4 +201,9 @@ For N=10 the posterior distributions become much broader, representing larger un
 
 # What happens if you change the grid spacing (try slope ranges from 1-10 in steps of 0.1, y-intercept ranges from 1-10 in steps of 1)? 
 
-The graphs become choppier but the results are similar.
+'''
+The graphs become choppier but the results are similar. 
+The choice of prior would depend on having a physical system in mind. The choice
+of parameter ranges would depend on prior knowledge of what is realistic. The choice
+of grid resolution would depend on how accurately we want to measure the answer.
+'''

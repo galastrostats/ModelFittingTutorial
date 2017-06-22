@@ -13,7 +13,7 @@ alphatrue=2. # slope
 betatrue=5.  # intercept
 errs=2.5 # sigma (amplitude of errors)
 
-narr=100 # number of data points
+narr=50 # number of data points
 xvals = np.arange(narr) + 1. # xvals range from 1-51
 yvals = alphatrue*xvals + betatrue + npr.normal(0,errs,narr) # yvals 
 # What aspect of a real data set does npr.normal emulate here?
